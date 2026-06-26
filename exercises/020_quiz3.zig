@@ -21,9 +21,12 @@ pub fn main() void {
 //
 // This function prints, but does not return anything.
 //
-fn printPowersOfTwo(numbers: [4]u16) u32 {
-    loop (numbers) |n| {
-        std.debug.print("{} ", .{twoToThe(n)});
+fn printPowersOfTwo(numbers: [4]u16) void {
+    var n: u16 = 0;
+
+    while (n < 4) {
+        std.debug.print("{} ", .{twoToThe(numbers[n])});
+        n += 1;
     }
 }
 
@@ -31,13 +34,13 @@ fn printPowersOfTwo(numbers: [4]u16) u32 {
 // exercise. But don't be fooled! This one does the math without the aid
 // of the standard library!
 //
-fn twoToThe(number: u16) ??? {
+fn twoToThe(number: u16) u32 {
     var n: u16 = 0;
     var total: u16 = 1;
 
-    loop (n < number) : (n += 1) {
+    while (n < number) : (n += 1) {
         total *= 2;
     }
 
-    return ???;
+    return total;
 }
