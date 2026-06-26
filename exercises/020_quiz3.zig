@@ -28,9 +28,6 @@ fn printPowersOfTwo(numbers: [4]u16) void {
         std.debug.print("{} ", .{twoToThe(numbers[n])});
         n += 1;
     }
-    // loop (numbers) : (n* =2) {
-    //     std.debug.print("{} ", .{twoToThe(n)});
-    // }
 }
 
 // This function bears a striking resemblance to twoToThe() in the last
