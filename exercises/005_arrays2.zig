@@ -1,5 +1,5 @@
 //
-// Zig has one array operators.
+// Zig has one array operator.
 //
 // You can use '++' to concatenate two arrays:
 //
@@ -7,7 +7,7 @@
 //   const b = [_]u8{ 3,4 };
 //   const c = a ++ b ++ [_]u8{ 5 }; // equals 1 2 3 4 5
 //
-// Note that '++'' only operate on arrays while your program is
+// Note that '++' only operates on arrays while your program is
 // _being compiled_. This special time is known in Zig
 // parlance as "comptime" and we'll learn plenty more about that
 // later.
@@ -53,3 +53,12 @@ pub fn main() void {
 
     std.debug.print("\n", .{});
 }
+
+// For the curious:
+//
+// The `std.simd.repeat` function takes a target length and a pattern,
+// and returns a vector filled with that pattern repeated to the
+// desired length.
+//
+// For example, `repeat(5, [_]u8{1, 2})` will return a vector
+// equivalent to `.{1, 2, 1, 2, 1}`.
