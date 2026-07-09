@@ -35,12 +35,16 @@ pub fn main() void {
     linkElephants(&elephantA, &elephantB);
     linkElephants(&elephantB, &elephantC);
 
+    std.debug.print("Elephant A {any}. ", .{elephantA.tail});
+    std.debug.print("Elephant B {any}. ", .{elephantB.tail});
+    std.debug.print("Elephant C {any}. ", .{elephantC.tail});
+
     // `linkElephants` will stop the program if you try and link an
     // elephant that doesn't exist! Uncomment and see what happens.
     // const missingElephant: ?*Elephant = null;
     // linkElephants(&elephantC, missingElephant);
 
-    visitElephants(&elephantA);
+    // visitElephants(&elephantA);
 
     std.debug.print("\n", .{});
 }
@@ -53,26 +57,26 @@ fn linkElephants(e1: ?*Elephant, e2: ?*Elephant) void {
 
 // This function visits all elephants once, starting with the
 // first elephant and following the tails to the next elephant.
-fn visitElephants(first_elephant: *Elephant) void {
-    var e = first_elephant;
+// fn visitElephants(first_elephant: *Elephant) void {
+//     var e = first_elephant;
 
-    while (!e.visited) {
-        std.debug.print("Elephant {u}. ", .{e.letter});
-        e.visited = true;
+//     // while (!e.visited) {
+//     //     std.debug.print("Elephant {u}. ", .{e.letter});
+//     //     e.visited = true;
 
-        // We should stop once we encounter a tail that
-        // does NOT point to another element. What can
-        // we put here to make that happen?
+//     //     // We should stop once we encounter a tail that
+//     //     // does NOT point to another element. What can
+//     //     // we put here to make that happen?
 
-        // HINT: We want something similar to what `.?` does,
-        // but instead of ending the program, we want to exit the loop...
-        //
-        std.debug.print("What is tail, atm {any} ", .{e});
+//     //     // HINT: We want something similar to what `.?` does,
+//     //     // but instead of ending the program, we want to exit the loop...
+//     //     //
+//     //     std.debug.print("What is tail, atm {any} ", .{e});
 
-        e = e.tail orelse Elephant{ .letter = 'D' };
-        const is_equal = std.mem.eql(u8, e.letter, 'D');
-        if (is_equal) {
-            break;
-        }
-    }
-}
+//     //     e = e.tail orelse Elephant{ .letter = 'D' };
+//     //     const is_equal = std.mem.eql(u8, e.letter, 'D');
+//     //     if (is_equal) {
+//     //         break;
+//     //     }
+//     // }
+// }
