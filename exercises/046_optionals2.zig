@@ -66,7 +66,6 @@ fn visitElephants(first_elephant: *Elephant) void {
 
         // HINT: We want something similar to what `.?` does,
         // but instead of ending the program, we want to exit the loop...
-        //
         var elephantToExit = Elephant{ .letter = 'D' };
         if (e.tail == null) {
             break;
