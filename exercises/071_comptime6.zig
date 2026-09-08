@@ -41,7 +41,8 @@ pub fn main() void {
     const field_names = @typeInfo(Narcissus).@"struct".field_names;
     const field_types = @typeInfo(Narcissus).@"struct".field_types;
 
-    ??? {
+    inline for (field_names, 0..) |field_name, index| {
+        const field_type = field_types[index];
         if (field_type != void) {
             print(" {s}", .{field_name});
         }
